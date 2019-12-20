@@ -1,0 +1,79 @@
+# Compiled Binaries And Shortcuts
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.lnk
+
+# Packages And Compressed Files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs And Databases
+*.log
+*.sql
+*.sqlite
+
+# Build Directories And Toolchain-generated Files
+/pkg
+/target
+/build/
+/obj
+/bin/
+x64/
+Debug/
+Release/
+*.lock
+*-lock.json
+*.layout
+*.depend
+.sconsign.dblite
+
+# OS-specific Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# CI Configs
+.winmake
+.appveyor.yml
+.travis.yml
+
+# IDEs (No Support Implied)
+.vim
+.vscode
+.vs
+.idea
+.eclipse
+.atom
+*.psess
+*.vsp
+*.vspx
+*.sap
+ipch/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+*.suo
+*.sln
+*.vcxproj*
+*.userosscache
+*.sln.docstates
+*.xcodeproj/**
