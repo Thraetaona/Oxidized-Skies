@@ -1,0 +1,35 @@
+[package]
+authors = ["Fereydoun Memarzanjany <F_Memarzanjany@outlook.com>"]
+name = "oxidized-skies"
+version = "0.1.0"
+description = "Experimental Game With Sandbox Elements Written In Rust WebAssembly And WebGL 2 With Multithreading Support Using The Most Cutting-edge Web Technologies."
+repository = "https://github.com/VioletVillain/Oxidized-Skies"
+documentation = "https://github.com/VioletVillain/Oxidized-Skies/wiki"
+license = "GPL-3.0"
+readme = "README.md"
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+js-sys = "0.3.32"
+wasm-bindgen = "0.2.55"
+
+[dependencies.web-sys]
+version = "0.3.32"
+features = [
+  'Document',
+  'Element',
+  'HtmlElement',
+  'Node',
+  'HtmlCanvasElement',
+  'WebGl2RenderingContext',
+  'WebGlRenderingContext',
+  'Window',
+]
+
+
+# [profile.release]
+# opt-level = 'z'
+# lto = true
