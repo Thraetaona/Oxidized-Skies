@@ -5,26 +5,46 @@ on: push
 jobs:
   build:
     
-    name: Create Releases For The 'Github.io' Page.
+    name: Creating Releases For The 'Github.io' Page.
     runs-on: ubuntu-latest
     
     steps:
     - uses: actions/checkout@v2
       
-    - name: Download And Install 'wasm-pack'; Then Compile Our Project To .wasm In The 'pkg' Directory [Optimized Build].
-      run: |
-        curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
-        wasm-pack build --target web --release
+    - name: Downloading And Installing 'wasm-pack'.
+      run:  curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+      
+    - name: Compiling The Project.
+      run:  wasm-pack build --target web --release
 
-    - name: Clean Our Toolchain's Files, Enter The 'pkg' Directory And Then Remove The Unneeded Files.
+    - name: Caching Cargo's Registry.
+      uses: actions/cache@v1
+      with:
+        path: ~/.cargo/registry
+        key: ${{ runner.os }}-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
+    
+    - name: Caching Cargo's Index.
+      uses: actions/cache@v1
+      with:
+        path: ~/.cargo/git
+        key: ${{ runner.os }}-cargo-index-${{ hashFiles('**/Cargo.lock') }}
+    
+    - name: Caching Cargos' Build.
+      uses: actions/cache@v1
+      with:
+        path: target
+        key: ${{ runner.os }}-cargo-build-target-${{ hashFiles('**/Cargo.lock') }}
+    
+    - name: Cleaning Up.
       run: |
         cargo clean
         cd pkg   
         rm -r oxidized_skies_bg.d.ts oxidized_skies.d.ts LICENSE .gitignore package.json
       
-    - name: Create Release
+    
+    - name: Creating a Release.
       id: create_release
-      uses: actions/create-release@v1
+      uses: actions/create-release@v1.0.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
@@ -36,14 +56,16 @@ jobs:
           - 2
         draft: false
         prerelease: false
-    - name: Upload Release Asset.
+    
+    
+    - name: Uploading Release Assets.
       id: upload-release-asset 
-      uses: actions/upload-release-asset@v1
+      uses: actions/upload-release-asset@v1.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./index.html pkg
         asset_name: Release
-        asset_content_type: application/zip
+        asset_content_type: application/folder
       
