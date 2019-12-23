@@ -41,6 +41,9 @@ jobs:
         cd pkg   
         rm -r oxidized_skies_bg.d.ts oxidized_skies.d.ts LICENSE .gitignore package.json
       
+    - name: Compressing The Release Files.
+      run: zip -r Release.zip pkg index.html
+    
     
     - name: Creating a Release.
       id: create_release
@@ -65,7 +68,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./index.html pkg
-        asset_name: Release
-        asset_content_type: application/folder
+        asset_path: ./Release.zip
+        asset_name: Release.zip
+        asset_content_type: application/zip
       
