@@ -14,7 +14,7 @@ jobs:
     - name: Download And Install 'wasm-pack'; Then Compile Our Project To .wasm In The 'pkg' Directory [Optimized Build].
       run: |
         curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
-        ldconfig
+        sudo ldconfig
         wasmm-pack build --target web --release
 
     - name: Clean Our Toolchain's Files, Enter The 'pkg' Directory And Then Remove The Unneeded Files.
