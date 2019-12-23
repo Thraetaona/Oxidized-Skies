@@ -1,6 +1,9 @@
 name: Oxidized-Skies
 
-on: push
+on:
+  push:
+    tags:
+    - 'v*'
 
 jobs:
   build:
@@ -54,9 +57,8 @@ jobs:
         tag_name: ${{ github.ref }}
         release_name: Release ${{ github.ref }}
         body: |
-          Changes in this Release
-          - 1
-          - 2
+          Changes in this Release:
+            First Pre-release Version.
         draft: false
         prerelease: false
     
