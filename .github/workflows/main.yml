@@ -1,0 +1,18 @@
+- name: Oxidized-Skies
+  uses: actions-rs/toolchain@master
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+    - name: Compile Our Project To .wasm In The 'pkg' Directory.
+      run:  wasm-pack build --target web
+    - name: Enter The 'pkg' Directory.
+      run:  cd pkg   
+    - name: Remove Unneeded Files.
+      run:  rm -r oxidized_skies_bg.d.ts oxidized_skies.d.ts LICENSE .gitignore package.json
