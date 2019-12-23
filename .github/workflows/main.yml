@@ -1,13 +1,15 @@
 - name: Oxidized-Skies
   uses: actions-rs/toolchain@master
-
-on: [push]
+  
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
-
+    name: Create Releases For Github.io Page.
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@master
     - name: Compile Our Project To .wasm In The 'pkg' Directory.
@@ -16,3 +18,17 @@ jobs:
       run:  cd pkg   
     - name: Remove Unneeded Files.
       run:  rm -r oxidized_skies_bg.d.ts oxidized_skies.d.ts LICENSE .gitignore package.json
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body: |
+          Changes in this Release
+          - 
+          - 
+        draft: false
+        prerelease: false
