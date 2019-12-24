@@ -30,8 +30,7 @@ features = [
   'Window',
 ]
 
-
-# [profile.release]
-# opt-level = 'z'
-# lto = true
-# debug = false
+[profile.release]
+opt-level = 3
+lto = true
+debug = false
