@@ -8,54 +8,57 @@ on:
 jobs:
   build:
     
-    name: Creating Releases For The 'Github.io' Page.
+    name: Continuous Integration And Deployment.
     runs-on: ubuntu-latest
     
     steps:
     - uses: actions/checkout@v1
       
-    - name: Downloading And Installing 'wasm-pack'.
+    - name: Download And Install 'wasm-pack'.
       run:  curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
       
-    - name: Compiling The Project.
+    - name: Compile The Project.
       run:  wasm-pack build --target web --release
 
-    - name: Caching Cargo's Registry.
+
+    - name: Cache Cargo's Registry.
       uses: actions/cache@v1
       with:
         path: ~/.cargo/registry
         key: ${{ runner.os }}-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
     
-    - name: Caching Cargo's Index.
+    - name: Cache Cargo's Index.
       uses: actions/cache@v1
       with:
         path: ~/.cargo/git
         key: ${{ runner.os }}-cargo-index-${{ hashFiles('**/Cargo.lock') }}
     
-    - name: Caching Cargos' Build.
+    - name: Cache Cargos' Build.
       uses: actions/cache@v1
       with:
         path: target
         key: ${{ runner.os }}-cargo-build-target-${{ hashFiles('**/Cargo.lock') }}
     
-    - name: Cleaning Up.
+    
+    - name: Clean Up.
       run: |
         cd pkg   
         rm -r oxidized_skies_bg.d.ts oxidized_skies.d.ts LICENSE README.md .gitignore package.json
+        cd ..
       
-    #- name: Compressing And Preparing The Files For Release.
+    #- name: Compress And Prepare The Files For Release.
     #  run: zip -r Release.zip pkg index.html
     
-    - name: Packing Project's Files.
-      run: mkdir www && mv index.html pkg www
+    - name: Pack Project's Files.
+      run: mkdir Release && mv index.html pkg Release
     
-    - name: Deploying To The 'gh-pages' Branch.
+    - name: Deploy To 'gh-pages' Branch.
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: gh-pages
-        FOLDER: www
+        FOLDER: Release
     
     
 
