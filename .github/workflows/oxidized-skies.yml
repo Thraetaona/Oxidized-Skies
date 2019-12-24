@@ -41,7 +41,7 @@ jobs:
     - name: Cleaning Up.
       run: |
         cd pkg   
-        rm -r oxidized_skies_bg.d.ts oxidized_skies.d.ts LICENSE .gitignore package.json
+        rm -r oxidized_skies_bg.d.ts oxidized_skies.d.ts LICENSE README.md .gitignore package.json
       
     #- name: Compressing And Preparing The Files For Release.
     #  run: zip -r Release.zip pkg index.html
