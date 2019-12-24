@@ -22,12 +22,13 @@ version = "0.3.32"
 features = [
   'Document',
   'Element',
-  'HtmlElement',
-  'Node',
-  'HtmlCanvasElement',
-  'WebGl2RenderingContext',
-  'WebGlRenderingContext',
   'Window',
+  'HtmlElement',
+  'HtmlCanvasElement',
+  'WebGlBuffer',
+  'WebGlProgram',
+  'WebGlShader',
+  'WebGl2RenderingContext',
 ]
 
 [profile.release]
