@@ -10,7 +10,7 @@ pub fn start() -> Result<(), JsValue> {
 
     let context = canvas.get_context("webgl2")?.unwrap().dyn_into::<WebGl2RenderingContext>()?;
 
-    context.clear_color(0.0, 0.0, 0.0, 1.0);
+    context.clear_color(1.0, 0.0, 1.0, 1.0);
     context.clear(WebGl2RenderingContext::COLOR_BUFFER_BIT);
 
     Ok(())
