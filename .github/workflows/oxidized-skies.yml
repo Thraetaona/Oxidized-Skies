@@ -40,7 +40,6 @@ jobs:
     
     - name: Cleaning Up.
       run: |
-        cargo clean
         cd pkg   
         rm -r oxidized_skies_bg.d.ts oxidized_skies.d.ts LICENSE .gitignore package.json
       
