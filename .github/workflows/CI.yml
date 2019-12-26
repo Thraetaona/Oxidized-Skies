@@ -16,16 +16,23 @@ jobs:
     
     
     - name: Retrieve/Cache Cargo's Folder.
-      uses: actions/cache@v1
+      uses: actions/cache@v1.0.3
       with:
         path: ~/.cargo
-        key: ${{ runner.os }}-cargo
+        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.toml') }}-${{ hashFiles('**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.toml') }}
+          ${{ runner.os }}-cargo
 
     - name: Retrieve/Cache Pre-built Dependencies.
-      uses: actions/cache@v1
+      uses: actions/cache@v1.0.3
       with:
         path: target
-        key: ${{ runner.os }}-cargo-build
+        key: ${{ runner.os }}-cargo-build-${{ hashFiles('**/Cargo.toml') }}-${{ hashFiles('**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-cargo-build-${{ hashFiles('**/Cargo.toml') }}
+          ${{ runner.os }}-cargo-build
+          
           
     - name: Download And Install 'wasm-pack'.
       run:  curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
