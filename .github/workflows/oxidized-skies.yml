@@ -13,7 +13,27 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-      
+    
+    
+    - name: Check Cargo's Folder's Cache
+      uses: actions/cache@v1
+      with:
+        path: ~/.cargo
+        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.toml') }}-${{ hashFiles('**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.toml') }}
+          ${{ runner.os }}-cargo
+
+    - name: Check Pre-built Dependencies' Cache.
+      uses: actions/cache@v1
+      with:
+        path: target
+        key: ${{ runner.os }}-cargo-build-${{ hashFiles('**/Cargo.toml') }}-${{ hashFiles('**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-cargo-build-${{ hashFiles('**/Cargo.toml') }}
+          ${{ runner.os }}-cargo-build
+          
+          
     - name: Download And Install 'wasm-pack'.
       run:  curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
       
@@ -50,22 +70,3 @@ jobs:
         asset_name: Release.zip
         tag: ${{ github.ref }}
         overwrite: true
-        
-        
-    - name: Cache Cargo's Folder
-      uses: actions/cache@v1
-      with:
-        path: ~/.cargo
-        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.toml') }}-${{ hashFiles('**/Cargo.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.toml') }}
-          ${{ runner.os }}-cargo
-
-    - name: Cache Cargo's Pre-built Dependencies.
-      uses: actions/cache@v1
-      with:
-        path: target
-        key: ${{ runner.os }}-cargo-build-${{ hashFiles('**/Cargo.toml') }}-${{ hashFiles('**/Cargo.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-cargo-build-${{ hashFiles('**/Cargo.toml') }}
-          ${{ runner.os }}-cargo-build
