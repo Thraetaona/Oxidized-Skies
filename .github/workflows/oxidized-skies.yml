@@ -20,14 +20,12 @@ jobs:
     - name: Compile The Project.
       run:  wasm-pack build --target web --release
 
+
     - name: Clean Up.
       run: |
         cd pkg   
         rm -r oxidized_skies_bg.d.ts oxidized_skies.d.ts LICENSE README.md .gitignore package.json
         cd ..
-      
-    #- name: Compress And Prepare The Files For Release.
-    #  run: zip -r Release.zip pkg index.html
     
     - name: Pack Project's Files.
       run: mkdir Release && mv index.html pkg Release
@@ -39,26 +37,35 @@ jobs:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: gh-pages
         FOLDER: Release
+     
+     
+    - name: Compress And Prepare The Files For Release.
+      run: zip Release.zip Release
+          
+    - name: Upload The Compressed Assets To Release.
+      uses: svenstaro/upload-release-action@v1-release
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: Release.zip
+        asset_name: Release.zip
+        tag: ${{ github.ref }}
+        overwrite: true
         
         
-    - name: Cache Cargo's Registry.
+    - name: Cache Cargo's Folder
       uses: actions/cache@v1
       with:
-        path: ~/.cargo/registry
-        key: ${{ runner.os }}-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
-    
-    - name: Cache Cargo's Index.
-      uses: actions/cache@v1
-      with:
-        path: ~/.cargo/git
-        key: ${{ runner.os }}-cargo-index-${{ hashFiles('**/Cargo.lock') }}
-    
-    - name: Cache Cargos' Build.
+        path: ~/.cargo
+        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.toml') }}-${{ hashFiles('**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.toml') }}
+          ${{ runner.os }}-cargo
+
+    - name: Cache Cargo's Pre-built Dependencies.
       uses: actions/cache@v1
       with:
         path: target
-        key: ${{ runner.os }}-cargo-build-target-${{ hashFiles('**/Cargo.lock') }}
-    
-    
-
-      
+        key: ${{ runner.os }}-cargo-build-${{ hashFiles('**/Cargo.toml') }}-${{ hashFiles('**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-cargo-build-${{ hashFiles('**/Cargo.toml') }}
+          ${{ runner.os }}-cargo-build
