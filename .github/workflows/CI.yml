@@ -8,49 +8,49 @@ on:
 jobs:
   build:
     
-    name: Continuous Integration And Deployment.
+    name: Continuous Integration And Deployment
     runs-on: ubuntu-latest
     
     steps:
     - uses: actions/checkout@v1
     
     
-    - name: Retrieve/Cache Cargo's Folder.
-      uses: actions/cache@v1.0.3
-      with:
-        path: ~/.cargo
-        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.toml') }}-${{ hashFiles('**/Cargo.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.toml') }}
-          ${{ runner.os }}-cargo
-
-    - name: Retrieve/Cache Pre-built Dependencies.
-      uses: actions/cache@v1.0.3
-      with:
-        path: target
-        key: ${{ runner.os }}-cargo-build-${{ hashFiles('**/Cargo.toml') }}-${{ hashFiles('**/Cargo.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-cargo-build-${{ hashFiles('**/Cargo.toml') }}
-          ${{ runner.os }}-cargo-build
+    #- name: Retrieve/Cache Cargo's Folder
+    #  uses: actions/cache@v1.0.3
+    #  with:
+    #    path: ~/.cargo
+    #    key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.toml') }}
+    #    restore-keys: |
+    #      ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.toml') }}
+    #      ${{ runner.os }}-cargo
+    #
+    #- name: Retrieve/Cache Pre-built Dependencies
+    #  uses: actions/cache@v1.0.3
+    #  with:
+    #    path: target
+    #    key: ${{ runner.os }}-target-${{ hashFiles('**/Cargo.toml') }}
+    #    restore-keys: |
+    #      ${{ runner.os }}-target-${{ hashFiles('**/Cargo.toml') }}
+    #      ${{ runner.os }}-target
           
           
-    - name: Download And Install 'wasm-pack'.
+    - name: Download And Install 'wasm-pack'
       run:  curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
       
-    - name: Compile The Project.
+    - name: Compile The Project
       run:  wasm-pack build --target web --release
 
 
-    - name: Clean Up.
+    - name: Clean Up
       run: |
         cd pkg   
         rm -r oxidized_skies_bg.d.ts oxidized_skies.d.ts LICENSE README.md .gitignore package.json
         cd ..
     
-    - name: Pack Project's Files.
+    - name: Pack Project's Files
       run: mkdir Release && mv index.html pkg Release
     
-    - name: Deploy To 'gh-pages' Branch.
+    - name: Deploy To 'gh-pages' Branch
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -59,10 +59,10 @@ jobs:
         FOLDER: Release
      
      
-    - name: Compress And Prepare The Files For Release.
+    - name: Compress And Prepare The Files For Release
       run: zip Release.zip Release
           
-    - name: Upload The Compressed Assets To Release.
+    - name: Upload The Compressed Assets To Release
       uses: svenstaro/upload-release-action@v1-release
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
