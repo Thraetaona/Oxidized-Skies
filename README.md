@@ -24,7 +24,7 @@ The project uses Github as its infrastructure and basis.  the [Wiki](https://git
 - Is a pioneer in the Game industy by being the First to take adventage of the most recent and Cutting-edge web technologies.
 - Easily Accessible regardless of operating system, device or architecture.
 - Completely Open Source and integrates with Github's Services.
-- Features a clean legible codebase with a modular Design Along and an extensive Documentation Covering Everything from the game controls to plugin developments.
+- Features a clean legible codebase with a modular Design Along and an extensive Documentation Covering Everything from the game controls to plugin developments and the source code.
 - Has a Procedurally Generated Universe including Hundreds of sectors to explore with outstanding storytelling and events.
 - Low resource usage and memory footprint with an Optimized Engine.
 
@@ -33,7 +33,7 @@ The project uses Github as its infrastructure and basis.  the [Wiki](https://git
 - Has a Procedurally Generated Universe including Hundreds of sectors to explore.
 - Features an ever growing list of parts such as shield generators and cargo holds which you can use to customize your ship with.
 - Has fun story driven events that occur Dynamically based on user's progress and status.
-- Has a detailed wiki with everything from the basics and game controls to plugin developments.
+- Has a detailed wiki explaining everything from the basics and game controls to plugin developments.
 - Runs Smoothly on Low end devices as long as you are using one of the Major Up to date Browsers.
 - Even the most negligible action has influence on the Envrironment and will affect your gameplay.
 
