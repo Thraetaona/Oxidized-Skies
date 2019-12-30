@@ -43,8 +43,8 @@ The project uses Github as its infrastructure and basis.  the [Wiki](https://git
 | :--- | :---: | ---: |
 | Minimum Version <sup>2</sup> | 57 | 52 |
 | Ram | - | - |
-| CPU | - | - |
-| GPU | - | - |
+| Cpu | - | - |
+| Gpu | - | - |
 
 ##### This section will recieve updates and absolute values once the Project reaches a stable state.
 
