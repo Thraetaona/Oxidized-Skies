@@ -41,7 +41,7 @@ The project uses Github as its infrastructure and basis.  the [Wiki](https://git
 
 | Item \ Browser | Chrome <sup>1</sup> | Firefox |
 | :--- | :---: | ---: |
-| Minimum Version <sup>2</sup> | 57 | 53 |
+| Minimum Version <sup>2</sup> | 61 | 58 |
 | Ram | - | - |
 | Cpu | - | - |
 | Gpu | - | - |
