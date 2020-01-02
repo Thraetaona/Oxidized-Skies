@@ -14,8 +14,8 @@
       "use strict";
 
       (async () => {
-        const {instance} = await WebAssembly.instantiateStreaming(fetch('./pkg/oxidized_skies_bg.wasm'), {});
-        instance.exports.start();
+        WebAssembly.instantiateStreaming(fetch('./pkg/oxidized_skies_bg.wasm'), {});
+        .then(wasm => wasm.instance.exports.start());
       })();
     </script>
   </body>
