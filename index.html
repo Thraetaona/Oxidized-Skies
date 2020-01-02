@@ -13,11 +13,9 @@
     <script type="module">
       "use strict";
 
-      import init from './pkg/oxidized_skies_bg.wasm';
-
       (async () => {
-        await init();
-        init();
+        const {instance} = await WebAssembly.instantiateStreaming(fetch('oxidized_skies_bg.wasm'));
+        start();
       })();
     </script>
   </body>
