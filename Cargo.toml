@@ -3,6 +3,7 @@ authors = ["Fereydoun Memarzanjany <F_Memarzanjany@outlook.com>"]
 name = "oxidized-skies"
 version = "0.1.0"
 description = "Experimental Space Game With Sandbox Elements And a Procedurally Generated Universe Written In Rust WebAssembly And WebGL 2 With Multithreading Support Using The Most Cutting-edge Web Technologies."
+homepage = "https://VioletVillain.github.io/Oxidized-Skies/"
 repository = "https://github.com/VioletVillain/Oxidized-Skies"
 documentation = "https://github.com/VioletVillain/Oxidized-Skies/wiki"
 license = "GPL-3.0"

@@ -61,7 +61,7 @@ pub fn start() -> Result<(), JsValue> {
 
 pub fn compile_shader(context: &WebGl2RenderingContext, shader_type: u32,
                       source: &str) -> Result<WebGlShader, String> {
-    let shader = context.create_shader(shader_type).ok_or_else(|| String::from("Unable to create shader object"))?;
+    let shader = context.create_shader(shader_type).ok_or_else(|| String::from("Could not create shader object."))?;
 
     context.shader_source(&shader, source);
     context.compile_shader(&shader);
@@ -74,6 +74,7 @@ pub fn compile_shader(context: &WebGl2RenderingContext, shader_type: u32,
     }
 }
 
+
 pub fn link_program(context: &WebGl2RenderingContext, vert_shader: &WebGlShader,
                     frag_shader: &WebGlShader) -> Result<WebGlProgram, String> {
     let program = context.create_program().ok_or_else(|| String::from("Unable to create shader object"))?;
@@ -82,15 +83,10 @@ pub fn link_program(context: &WebGl2RenderingContext, vert_shader: &WebGlShader,
     context.attach_shader(&program, frag_shader);
     context.link_program(&program);
 
-    if context
-        .get_program_parameter(&program, WebGl2RenderingContext::LINK_STATUS)
-        .as_bool()
-        .unwrap_or(false)
+    if context.get_program_parameter(&program, WebGl2RenderingContext::LINK_STATUS).as_bool().unwrap_or(false)
     {
         Ok(program)
     } else {
-        Err(context
-            .get_program_info_log(&program)
-            .unwrap_or_else(|| String::from("Unknown error creating program object")))
+        Err(context.get_program_info_log(&program).unwrap_or_else(|| String::from("Unknown error creating program object")))
     }
 }
