@@ -34,7 +34,7 @@ The project uses Github as its infrastructure and basis.  the [Wiki](https://git
 - Features an ever growing list of parts such as shield generators and cargo holds which you can use to customize your ship with.
 - Has fun story driven events that occur Dynamically based on user's progress and status.
 - Has a detailed wiki explaining everything from the basics and game controls to plugin developments.
-- Runs Smoothly on Low end devices as long as you are using one of the Major Up to date Browsers.
+- Runs Smoothly on Low end devices as long as you are using one of the Major up-to-date Browsers.
 - Even the most negligible action has influence on the Envrironment and will affect your gameplay.
 
 ## Minimum System Requirements And Resource Usage
@@ -48,7 +48,7 @@ The project uses Github as its infrastructure and basis.  the [Wiki](https://git
 
 ##### This section will recieve updates and absolute values once the Project reaches a stable state.
 
-This game should be able to run Flawlessly and Smooth even on a Decade old device, with the most Restrictive Requirement being an up to date web browser.
+This game should be able to run Flawlessly and Smooth even on a Decade old device, with the most Restrictive Requirement being an up-to-date web browser.
 (Which You Probably Should Be Using Anyway.)
 
 
