@@ -34,5 +34,14 @@ features = [
 
 [profile.release]
 opt-level = 3
-lto = true
 debug = false
+rpath = false
+lto = 'fat'
+debug-assertions = false
+codegen-units = 1
+panic = 'abort'
+incremental = false
+overflow-checks = false
+rustflags = [                                                                                       
+    "-C", "link-arg=-fuse-ld=lld",                                                    
+]
