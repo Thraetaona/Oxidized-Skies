@@ -15,11 +15,11 @@ edition = "2018"
 crate-type = ["cdylib"]
 
 [dependencies]
-js-sys = "0.3.32"
-wasm-bindgen = "0.2.55"
+js-sys = "0.3.33"
+wasm-bindgen = "0.2.58"
 
 [dependencies.web-sys]
-version = "0.3.32"
+version = "0.3.33"
 features = [
   'Document',
   'Element',
@@ -42,6 +42,3 @@ codegen-units = 1
 panic = 'abort'
 incremental = false
 overflow-checks = false
-rustflags = [                                                                                       
-    "-C", "link-arg=-fuse-ld=lld",                                                    
-]
