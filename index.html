@@ -14,10 +14,12 @@
       "use strict";
 
       (async () => {
-        let memory;
-        const imports = {};
-        memory = imports.wbg.memory = new WebAssembly.Memory({initial:17,maximum:16384,shared:true});
-        
+        const config = {
+          env: {
+            memory: new WebAssembly.Memory({initial:17,maximum:16384,shared:true}),
+          }
+        }
+
         WebAssembly.instantiateStreaming(fetch('./pkg/oxidized_skies.wasm'), config)
         .then(wasm => wasm.instance.exports.start());
       })();
