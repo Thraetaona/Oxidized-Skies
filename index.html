@@ -13,15 +13,10 @@
     <script type="module">
       "use strict";
 
-      (async () => {
-        const config = {
-          env: {
-            memory: new WebAssembly.Memory({initial:17,maximum:16384,shared:true}),
-          }
-        }
+      import init, { add } from './pkg/oxidized_skies.js';
 
-        WebAssembly.instantiateStreaming(fetch('./pkg/oxidized_skies.wasm'), config)
-        .then(wasm => wasm.instance.exports.start());
+      (async () => {
+        await init();
       })();
     </script>
   </body>
