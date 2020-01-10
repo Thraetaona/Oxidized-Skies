@@ -20,7 +20,7 @@
           }
         }
 
-        WebAssembly.instantiateStreaming('./pkg/oxidized_skies.wasm', config)
+        WebAssembly.instantiateStreaming(fetch('./pkg/oxidized_skies.wasm'), config)
         .then(wasm => wasm.instance.exports.start());
       })();
     </script>
