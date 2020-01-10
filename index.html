@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Oxidized Skies</title>
+    <meta name="title" content="Oxidized Skies">
+    <meta name="author" content="Fereydoun Memarzanjany">
+    <meta name="description" content="Experimental Space Game With Sandbox Elements And a Procedurally Generated Universe Written In Rust WebAssembly And WebGL 2 With Multithreading Support Using The Most Cutting-edge Web Technologies.">
+    <meta name="keywords" content="oxidized skies, webgl2, webassembly, wasm, rust, multithreaded, procedural generation, game, space game, browser game">
+  </head>
+  <body style="margin: 0;">
+    <canvas id="canvas" style="width: 100vw; height: 100vh; display: block;" ></canvas>
+    <script type="module">
+      "use strict";
+
+      (async () => {
+        const config = {
+          env: {
+            memory: new WebAssembly.Memory({initial:17,maximum:16384,shared:true}),
+          }
+        }
+
+        WebAssembly.instantiateStreaming(fetch('./pkg/oxidized_skies.wasm'), config)
+        .then(wasm => wasm.instance.exports.start());
+      })();
+    </script>
+  </body>
+</html>
