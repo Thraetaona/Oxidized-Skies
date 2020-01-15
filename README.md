@@ -11,7 +11,7 @@ Experience Dynamically generated Events based on your progress and status; Aster
 
 ---
 
-'Oxidized Skies' Is written in Rust and compiles to native .wasm (WebAssembly) files that run and execute inside a modern browser, it uses a custom built engine powered by WebGL 2 and has a modding interface available.
+'Oxidized Skies' Is written in Rust and compiles to native .wasm (WebAssembly) files that run and execute inside a modern browser, it uses a custom built engine powered by WebGPU and has a modding interface available.
 
 The project uses Github as its infrastructure and basis.  the [Wiki](https://github.com/VioletVillain/Oxidized-Skies/wiki), [Source Code](https://github.com/VioletVillain/Oxidized-Skies), [Forums/Issue tracker](https://github.com/VioletVillain/Oxidized-Skies/issues), [CI](https://github.com/VioletVillain/Oxidized-Skies/actions), [Releases](https://github.com/VioletVillain/Oxidized-Skies/releases), [Roadmap](https://github.com/VioletVillain/Oxidized-Skies/projects) And the [Website](https://VioletVillain.github.io/Oxidized-Skies/) Are All Hosted on Github.
 
