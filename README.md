@@ -82,9 +82,7 @@ This game should be able to run Flawlessly and Smooth even on a Decade old devic
 
 ---
 
-1-This also Applies to Chromium based Browsers Provided that they have Not disabled Anything.
-
-2-Although Minimum Browser version's should generally work, they might however, not perform as good as the newer ones and will possibly lose their support once a new feature gets added.
+<sub>1-This also Applies to Chromium based Browsers Provided that they have Not disabled Anything.</sub>
+<sub>2-Although Minimum Browser version's should generally work, they might however, not perform as good as the newer ones and will possibly lose their support once a new feature gets added.</sub>
 
 ---
-
