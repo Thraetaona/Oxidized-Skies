@@ -52,7 +52,7 @@ The project uses Github as its infrastructure and basis.  the [Wiki](https://git
 - Is a pioneer in the Game industy by being the First to take adventage of the most recent and Cutting-edge web technologies.
 - Easily Accessible regardless of operating system, device or architecture.
 - Completely Open Source and integrates with Github's Services.
-- Features a clean legible codebase with a modular Design Along and an extensive Documentation Covering Everything from the game controls to plugin developments and the source code.
+- Features a clean legible codebase with a modular Design and an extensive Documentation Covering Everything from the game controls to plugin developments and the source code.
 - Has a Procedurally Generated Universe including Hundreds of sectors to explore with outstanding storytelling and events.
 - Low resource usage and memory footprint with an Optimized Engine.
 
