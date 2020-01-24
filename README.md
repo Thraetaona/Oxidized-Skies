@@ -1,6 +1,34 @@
-# Oxidized Skies
 
-<a href="https://github.com/VioletVillain/Oxidized-Skies/actions"><img alt="GitHub Actions status" src="https://github.com/VioletVillain/Oxidized-Skies/workflows/Oxidized-Skies/badge.svg"></a>
+<div align="center">
+
+  <h1><code>Oxidized Skies</code></h1>
+
+<img src="" alt="Logo">
+
+  <p>
+    <strong>Experimental Space Game With Sandbox Elements And a Procedurally Generated Universe Written In Rust WebAssembly And WebGPU With Multithreading Support Using The Most Cutting-edge Web Technologies.</strong>
+  </p>
+
+  <p>
+    <a href="https://github.com/VioletVillain/Oxidized-Skies/actions"><img alt="GitHub Actions status" src="https://github.com/VioletVillain/Oxidized-Skies/workflows/Oxidized-Skies/badge.svg"></a>
+  </p>
+
+  <h3>
+	<a href="https://VioletVillain.github.io/Oxidized-Skies/">Website</a>
+	<span> | </span>
+    <a href="https://github.com/VioletVillain/Oxidized-Skies/wiki">Wiki</a>
+    <span> | </span>
+    <a href="https://github.com/VioletVillain/Oxidized-Skies/issues">Forums</a>
+    <span> | </span>
+    <a href="https://github.com/VioletVillain/Oxidized-Skies/actions">CI</a>
+    <span> | </span>
+    <a href="https://github.com/VioletVillain/Oxidized-Skies/projects">Roadmap</a>
+    <span> | </span>
+    <a href="https://github.com/VioletVillain/Oxidized-Skies/releases">Releases</a>
+  </h3>
+</div>
+
+#  Introduction
 
 You may play the Game [Here](https://VioletVillain.github.io/Oxidized-Skies "Oxidized Skies"), For any Questions, Doubts or Problems regarding the game, Please open a new issue on the [Forums](https://github.com/VioletVillain/Oxidized-Skies/issues "Visit the Forums").
 
