@@ -28,7 +28,7 @@
   </h3>
 </div>
 
-#  Introduction
+# Introduction
 
 You may play the Game [Here](https://VioletVillain.github.io/Oxidized-Skies "Oxidized Skies"), For any Questions, Doubts or Problems regarding the game, Please open a new issue on the [Forums](https://github.com/VioletVillain/Oxidized-Skies/issues "Visit the Forums").
 
