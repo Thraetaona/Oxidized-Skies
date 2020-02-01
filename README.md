@@ -3,10 +3,10 @@
 
   <h1><code>Oxidized Skies</code></h1>
 
-<img src="" alt="Logo">
+  <img src="" alt="Logo">
 
   <p>
-    <strong>Experimental Space Game With Sandbox Elements And a Procedurally Generated Universe Written In Rust WebAssembly And WebGPU With Multithreading Support Using The Most Cutting-edge Web Technologies.</strong>
+    <strong>Space Game With Sandbox Elements And a Procedurally Generated Universe Made With RASM.</strong>
   </p>
 
   <p>
@@ -29,6 +29,10 @@
 </div>
 
 # Introduction
+
+###
+<b> Still being in early development stages, Oxidized-Skies and the engine it uses, [RASM](https://github.com/VioletVillain/RASM "RASM"), are developed concurrently. </b>
+###
 
 You may play the Game [Here](https://VioletVillain.github.io/Oxidized-Skies "Oxidized Skies"), For any Questions, Doubts or Problems regarding the game, Please open a new issue on the [Forums](https://github.com/VioletVillain/Oxidized-Skies/issues "Visit the Forums").
 
