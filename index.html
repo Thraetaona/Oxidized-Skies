@@ -12,11 +12,9 @@
     <canvas id="canvas" style="width: 100vw; height: 100vh; display: block;" ></canvas>
     <script type="module">
       "use strict";
-
-      import init from './pkg/oxidized_skies.js';
-
       (async () => {
-        await init();
+        WebAssembly.instantiateStreaming(fetch('./pkg/oxidized_skies.wasm'), {})
+        .then(wasm => wasm.instance.exports.start());
       })();
     </script>
   </body>
