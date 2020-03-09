@@ -23,7 +23,7 @@
 *.tar
 *.zip
 
-# Logs And Databases
+# Logs and databases
 *.log
 *.sql
 *.sqlite
