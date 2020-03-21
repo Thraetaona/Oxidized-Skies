@@ -2,6 +2,12 @@
 let wasm;
 let memory;
 
+/**
+*/
+export function main() {
+    wasm.main();
+}
+
 async function load(module, imports, maybe_memory) {
     if (typeof Response === 'function' && module instanceof Response) {
         memory = imports.wbg.memory = new WebAssembly.Memory({initial:17,maximum:16384,shared:true});
