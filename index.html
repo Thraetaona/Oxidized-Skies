@@ -13,11 +13,13 @@
     <script type="module">
       "use strict";
       
-      import init from './pkg/oxidized_skies.js';
+      import * as wasm from './oxidized_skies_bg.wasm';
 
-      (async () => {
-        await init();
-      })();
+      export function main() {
+        wasm.main();
+      }
+
+      wasm.__wbindgen_start();
     </script>
   </body>
 </html>
