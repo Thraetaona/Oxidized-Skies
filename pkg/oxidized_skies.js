@@ -8,11 +8,10 @@ export function main() {
 }
 
 async function load(module, imports, maybe_memory) {
-        try {
-            return await WebAssembly.instantiateStreaming(module, imports);
-        } catch (e) {
-            throw e;
-        }
+    try {
+        return await WebAssembly.instantiateStreaming(module, imports);
+    } catch (e) {
+         throw e;
     }
 }
 
