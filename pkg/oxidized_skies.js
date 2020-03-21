@@ -1,4 +1,3 @@
-
 let wasm;
 let memory;
 
@@ -9,34 +8,10 @@ export function main() {
 }
 
 async function load(module, imports, maybe_memory) {
-    if (typeof Response === 'function' && module instanceof Response) {
-        memory = imports.wbg.memory = new WebAssembly.Memory({initial:17,maximum:16384,shared:true});
-        if (typeof WebAssembly.instantiateStreaming === 'function') {
-            try {
-                return await WebAssembly.instantiateStreaming(module, imports);
-
-            } catch (e) {
-                if (module.headers.get('Content-Type') != 'application/wasm') {
-                    console.warn("`WebAssembly.instantiateStreaming` failed because your server does not serve wasm with `application/wasm` MIME type. Falling back to `WebAssembly.instantiate` which is slower. Original error:\n", e);
-
-                } else {
-                    throw e;
-                }
-            }
-        }
-
-        const bytes = await module.arrayBuffer();
-        return await WebAssembly.instantiate(bytes, imports);
-
-    } else {
-        memory = imports.wbg.memory = maybe_memory;
-        const instance = await WebAssembly.instantiate(module, imports);
-
-        if (instance instanceof WebAssembly.Instance) {
-            return { instance, module };
-
-        } else {
-            return instance;
+        try {
+            return await WebAssembly.instantiateStreaming(module, imports);
+        } catch (e) {
+            throw e;
         }
     }
 }
