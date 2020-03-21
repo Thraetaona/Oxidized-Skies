@@ -1,5 +1,6 @@
 
 let wasm;
+let memory;
 
 let cachedTextDecoder = new TextDecoder('utf-8', { ignoreBOM: true, fatal: true });
 
@@ -7,14 +8,14 @@ cachedTextDecoder.decode();
 
 let cachegetUint8Memory0 = null;
 function getUint8Memory0() {
-    if (cachegetUint8Memory0 === null || cachegetUint8Memory0.buffer !== wasm.memory.buffer) {
-        cachegetUint8Memory0 = new Uint8Array(wasm.memory.buffer);
+    if (cachegetUint8Memory0 === null || cachegetUint8Memory0.buffer !== wasm.__wbindgen_export_0.buffer) {
+        cachegetUint8Memory0 = new Uint8Array(wasm.__wbindgen_export_0.buffer);
     }
     return cachegetUint8Memory0;
 }
 
 function getStringFromWasm0(ptr, len) {
-    return cachedTextDecoder.decode(getUint8Memory0().subarray(ptr, ptr + len));
+    return cachedTextDecoder.decode(getUint8Memory0().slice(ptr, ptr + len));
 }
 /**
 */
@@ -22,9 +23,9 @@ export function main() {
     wasm.main();
 }
 
-async function load(module, imports) {
+async function load(module, imports, maybe_memory) {
     if (typeof Response === 'function' && module instanceof Response) {
-
+        memory = imports.wbg.memory = new WebAssembly.Memory({initial:17,maximum:16384,shared:true});
         if (typeof WebAssembly.instantiateStreaming === 'function') {
             try {
                 return await WebAssembly.instantiateStreaming(module, imports);
@@ -43,7 +44,7 @@ async function load(module, imports) {
         return await WebAssembly.instantiate(bytes, imports);
 
     } else {
-
+        memory = imports.wbg.memory = maybe_memory;
         const instance = await WebAssembly.instantiate(module, imports);
 
         if (instance instanceof WebAssembly.Instance) {
@@ -55,7 +56,7 @@ async function load(module, imports) {
     }
 }
 
-async function init(input) {
+async function init(input, maybe_memory) {
     if (typeof input === 'undefined') {
         input = import.meta.url.replace(/\.js$/, '_bg.wasm');
     }
@@ -69,7 +70,7 @@ async function init(input) {
         input = fetch(input);
     }
 
-    const { instance, module } = await load(await input, imports);
+    const { instance, module } = await load(await input, imports, maybe_memory);
 
     wasm = instance.exports;
     init.__wbindgen_wasm_module = module;
