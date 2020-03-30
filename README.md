@@ -47,6 +47,7 @@ Experience Dynamically generated Events based on your progress and status; Aster
 
 The project uses Github as its infrastructure and basis.  the [Wiki](https://github.com/VioletVillain/Oxidized-Skies/wiki), [Source Code](https://github.com/VioletVillain/Oxidized-Skies), [Forums/Issue tracker](https://github.com/VioletVillain/Oxidized-Skies/issues), [CI](https://github.com/VioletVillain/Oxidized-Skies/actions), [Releases](https://github.com/VioletVillain/Oxidized-Skies/releases), [Roadmap](https://github.com/VioletVillain/Oxidized-Skies/projects) And the [Website](https://VioletVillain.github.io/Oxidized-Skies/) Are All Hosted on Github.
 
+For instructions on how to build the project visit [this Wiki page](https://github.com/VioletVillain/Oxidized-Skies/wiki/Build-Instructions).
 
 ## What Makes This Project Different From Its Counterparts?
 
