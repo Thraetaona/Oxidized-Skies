@@ -1,33 +1,28 @@
-use wasm_bindgen::prelude::*;
-
-pub enum Log {
-  Info,
-  Warning,
-  Error,
-}
-
-#[wasm_bindgen]
-extern "C" {
-    #[wasm_bindgen(js_namespace = console, js_name = log)]
-    pub fn console_log(s: &str);
-
-    #[wasm_bindgen(js_namespace = console, js_name = warn)]
-    pub fn console_warn(s: &str);
-    
-    #[wasm_bindgen(js_namespace = console, js_name = error)]
-    pub fn console_error(s: &str);
-}
+// Crate-level documentation (Overview) resides in the 'README.md' file.
 
 
-fn log(message: &str, mode: Log) {
-    match mode {
-        Log::Info => console_log(&format!("[{}] {}", "INFO", message)),
-        Log::Warning => console_warn(&format!("[{}] {}", "WARNING", message)),
-        Log::Error => console_error(&format!("[{}] {}", "ERROR", message)),
-    }
-}
+#![no_std]
+#![no_main]
 
-#[wasm_bindgen(start)]
+#![allow(unused_attributes)]
+
+
+use rasm::core::log::*;
+
+
+#[no_mangle]
 pub fn main() {
-    log("Warnings are typically used for deprecations or recoverable errors.", Log::Warning);
+    let _arr = (42, "Exiting.");
+
+    //rasm::console!(time);
+
+    rasm::console!(log, "Hello, World!");
+    rasm::console!(error, "Received : {}, {}", _arr.0, _arr.1);
+    rasm::console!(warn, "this is a warning");
+    rasm::console!(trace, "this message should be traced back to its original souce");
+    rasm::console!(log, "Condition {} met, exiting now.", 404);
+    rasm::console!(info, "1 + 3 = {}. It Works!", 1 + 3);
+
+
+    //rasm::console!(time_end);
 }

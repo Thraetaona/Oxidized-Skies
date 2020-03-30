@@ -17,7 +17,7 @@ publish = false
 crate-type = ["cdylib"]
 
 [dependencies]
-rasm = "*"
+rasm = { path = "../RASM" }
 
 [profile.release]
 lto = "fat"
